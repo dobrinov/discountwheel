@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+
+#logo {
+  position: absolute;
+  top: 215px;
+  left: 150px;
+
+  width: 200px;
+
+  z-index: 999;
+}
+
+#pointer {
+  position: absolute;
+  top: 243px;
+  left: 445px;
+
+  width: 40px;
+
+  z-index: 999;
+}
