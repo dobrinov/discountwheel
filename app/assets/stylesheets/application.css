@@ -13,6 +13,12 @@
  */
 
 
+a {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+}
+
 #logo {
   position: absolute;
   top: 215px;

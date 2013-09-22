@@ -1,2 +1,12 @@
+<%= link_to 'Spin', wheel_spin_path, remote: true %>
+
 <%= image_tag 'mania.png', id: 'logo' %>
 <%= image_tag 'pointer.png', id: 'pointer' %>
+
+<script type="text/javascript">
+  var wheel;
+
+  $(document).ready(function(){
+    wheel = new Wheel();
+  });
+</script>
