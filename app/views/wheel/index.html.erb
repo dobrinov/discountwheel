@@ -1,9 +1,15 @@
+<% if signed_request_data['user_id'].nil? %>
+  <script>
+    window.location.top = <%= "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@auth_url}&scope=#{@scope}" %>
+  </script>
+<% else %>
+<% end %>
+
+
 <%= link_to 'Spin', wheel_spin_path, remote: true %>
 
 <%= image_tag 'mania.png', id: 'logo' %>
 <%= image_tag 'pointer.png', id: 'pointer' %>
-
-<%= params.inspect %>
 
 <script type="text/javascript">
   var wheel;
