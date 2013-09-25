@@ -2,10 +2,10 @@ class WheelController < ApplicationController
 
   def index
     @app_id     = '371914089608290'
-    @canvas_url = Base64.encode64('https://discountwheel.herokuapp.com/')
+    @canvas_url = URI.escape('https://discountwheel.herokuapp.com/')
     @scope      = 'email'
 
-    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}"
+    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@canvas_url}&scope=#{@scope}"
   end
 
   def spin
