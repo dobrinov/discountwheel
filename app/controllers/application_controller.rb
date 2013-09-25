@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :signed_request_data
 
   def signed_request_data
-    if params[:signed_request]
-      JSON.parse(base64_url_decode(params[:signed_request].split('.', 2)[1]))
-    end
+    @_signed_request_data = JSON.parse(base64_url_decode(params[:signed_request].split('.', 2)[1])) if params[:signed_request]
   end
 
   def base64_url_decode(str)
