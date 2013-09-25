@@ -1,4 +1,4 @@
-<% if signed_request_data['user_id'].nil? %>
+<% if signed_request_data.nil? || signed_request_data['user_id'].nil? %>
   <script type="text/javascript">
     top.location.href = '<%= @auth_url.html_safe %>';
   </script>
