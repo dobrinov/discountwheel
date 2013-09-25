@@ -1,6 +1,6 @@
 <% if signed_request_data['user_id'].nil? %>
   <script>
-    window.location.top = <%= "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@auth_url}&scope=#{@scope}" %>
+    window.location.top = '<%= @auth_url %>';
   </script>
 <% else %>
 <% end %>
