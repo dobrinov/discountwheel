@@ -1,6 +1,6 @@
 <% if signed_request_data['user_id'].nil? %>
-  <script>
-    window.location.top = '<%= @auth_url %>';
+  <script type="text/javascript">
+    top.location.href = '<%= @auth_url.html_safe %>';
   </script>
 <% else %>
 <% end %>

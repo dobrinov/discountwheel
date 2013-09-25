@@ -5,7 +5,7 @@ class WheelController < ApplicationController
     @canvas_url = 'https://discountwheel.herokuapp.com/'
     @scope      = 'email'
 
-    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@canvas_url}&scope=#{@scope}"
+    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{Base64.encode64(@canvas_url)}&scope=#{@scope}"
   end
 
   def spin
