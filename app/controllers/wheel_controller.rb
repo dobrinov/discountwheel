@@ -6,10 +6,8 @@ class WheelController < ApplicationController
     scope    = 'email' 
 
     if signed_request_data['user_id'].nil?
-      'it is nil'
-      # redirect_to "https://www.facebook.com/dialog/oauth?client_id=#{app_id}&redirect_uri=#{auth_url}&scope=#{scope}"
+      redirect_to "https://www.facebook.com/dialog/oauth?client_id=#{app_id}&redirect_uri=#{auth_url}&scope=#{scope}"
     else
-      'it is not nil'
     end
   end
 
