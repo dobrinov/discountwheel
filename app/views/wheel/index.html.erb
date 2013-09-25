@@ -3,7 +3,7 @@
 <%= image_tag 'mania.png', id: 'logo' %>
 <%= image_tag 'pointer.png', id: 'pointer' %>
 
-<%= params.inspect %>
+<%= base64_url_decode(params[:signed_request]) %>
 
 <script type="text/javascript">
   var wheel;
