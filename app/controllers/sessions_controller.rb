@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
   end
 
   def index
-    raise params.inspect
   end
 
 end
