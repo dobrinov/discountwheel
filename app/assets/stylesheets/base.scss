@@ -1,0 +1,43 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: image-url('bg_pattern.png');
+}
+
+svg {
+  position: absolute;
+  top: -40px !important;
+  left: -40px !important;
+}
+
+#wrapper {
+  position: relative;
+
+  width: 800px;
+  height: 600px;
+
+  margin: 0px auto;
+
+  outline: 1px dotted red;
+
+  #wheel_center{
+    position: absolute;
+    top: 260px;
+    left: 260px;
+
+    z-index: 10;
+
+    margin-top: -49px;
+    margin-left: -49px;
+  }
+
+  #win_sector {
+    position: absolute;
+    top: 260px;
+    left: 490px;
+
+    z-index: 10;
+
+    margin-top: -23px;
+  }
+}
