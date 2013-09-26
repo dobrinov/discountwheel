@@ -20,6 +20,15 @@ svg {
 
   outline: 1px dotted red;
 
+
+  #logo{
+    position: absolute;
+    top: 430px;
+    left: 530px;
+
+    z-index: 10;
+  }
+
   #wheel_center{
     position: absolute;
     top: 260px;
