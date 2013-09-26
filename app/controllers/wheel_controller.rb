@@ -4,7 +4,10 @@ class WheelController < ApplicationController
     @app_id     = '371914089608290'
     @page_name  = 'Dobrinovs-lab'
     @page_id    = '747088781984697'
-    @canvas_url = URI.escape("https://www.facebook.com/pages/#{@page_name}/#{@page_id}?v=app_#{@app_id}")
+
+    # https://developers.facebook.com/docs/reference/dialogs/oauth/
+    # https://developers.facebook.com/docs/appsonfacebook/pagetabs/
+    @canvas_url = URI.escape("https://discountwheel.herokuapp.com/callback")
     @scope      = 'email'
 
     @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@canvas_url}&scope=#{@scope}"
