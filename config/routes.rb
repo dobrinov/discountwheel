@@ -1,9 +1,9 @@
 Discountwheel::Application.routes.draw do
 
-  get  '/',         to: 'wheel#index'
-  get  '/spin',     to: 'wheel#spin'
+  get  '/wheel/spin', to: 'wheel#spin'
+  get  '/callback',   to: 'sessions#index'
 
-  get  '/callback', to: 'sessions#index'
-  post '/',         to: 'sessions#create'
+  get  '/wheel',      to: 'wheel#index'
+  post '/',           to: 'sessions#create'
 
 end

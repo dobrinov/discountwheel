@@ -2,10 +2,13 @@ class SessionsController < ApplicationController
 
   before_filter :init_instance_variables
 
-  def create
+  def index
   end
 
-  def index
+  def create
+    unless signed_request_data.nil? || signed_request_data['user_id'].nil?
+      redirect_to wheel_path
+    end
   end
 
   private
