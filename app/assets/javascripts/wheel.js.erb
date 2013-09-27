@@ -8,39 +8,6 @@ function Wheel() {
   this.image = this.paper.image('<%= asset_path('wheel.png') %>', 0, 0, 600, 600);
 }
 
-Wheel.prototype.spin = function(power, speed){
-  var self = this;
-
-  var last_loop_when_speed_decreased = 0;
-
-  self.power = power;
-  self.speed = speed;
-
-  var t = setInterval(function(){
-
-    self.rotate(self.speed);
-
-    if(last_loop_when_speed_decreased != self.loops && self.loops % 1 == 0 && self.speed > 1){
-      last_loop_when_speed_decreased = self.loops;
-      self.speed--;
-    }
-
-    if(self.speed == 1){
-      if(self.power > 0){
-        self.power = self.power - self.speed;
-      } else {
-        clearInterval(t);
-      }
-    }
-
-  }, 30);
-}
-
-Wheel.prototype.rotate = function(degree){
-  var newDegree = this.angle + degree;
-
-  this.angle = newDegree % 360;
-  this.loops += Math.floor(newDegree / 360);
-
-  this.image.rotate(degree);
+Wheel.prototype.spin = function(angle, ms){
+  this.image.animate({ rotation: angle }, ms, ">");
 }

@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require raphael-min
+//= require raphael-1.5.2-min
 //= require_tree .
