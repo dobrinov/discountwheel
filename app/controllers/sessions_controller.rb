@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     unless signed_request_data.nil? || signed_request_data['user_id'].nil?
-      redirect_to wheel_path
+      #redirect_to wheel_path
     end
   end
 
