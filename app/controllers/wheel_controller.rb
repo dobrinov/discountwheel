@@ -4,7 +4,7 @@ class WheelController < ApplicationController
   end
 
   def spin
-    @angle = (1..2).to_a.sample * 360 + ((rand(360) / 15).floor * 15)
+    @angle = 2 * 360 + ((rand(360) / 15).floor * 15)
 
     respond_to do |format|
       format.js
