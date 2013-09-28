@@ -1,5 +1,7 @@
 class WheelController < ApplicationController
 
+  helper_method :prize_for, :text_for
+
   before_filter :init_instance_variables
 
   before_filter do
@@ -18,6 +20,22 @@ class WheelController < ApplicationController
   end
 
   def already_played
+  end
+
+  private
+
+  def prize_for(angle)
+    wheel_sectors = [ 20, 15, 25, 30, 20, 15, 100, 15, 20, 30, 25, 15, 20, 15, 20, 25, 20, 15, 25, 15, 20, 25, 20, 15 ]
+
+    wheel_sectors[((angle - 720) / 15).round]
+  end
+
+  def text_for(prize)
+    if(prize == 100)
+      'безплатна дреха'
+    else
+      "#{prize}% отстъпка"
+    end
   end
 
 end

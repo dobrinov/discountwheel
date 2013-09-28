@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
     @page_name  = 'Dobrinovs-lab'
     @page_id    = '747088781984697'
 
-    @callback_url        = URI.escape("https://localhost:3000/callback")
+    @callback_url        = URI.escape("https://discountwheel.herokuapp.com/callback")
     @page_tab_canvas_url = "https://www.facebook.com/pages/#{@page_name}/#{@page_id}?id=#{@page_id}&v=app_#{@app_id}"
     @scope               = 'email,user_likes'
 

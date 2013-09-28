@@ -4,10 +4,12 @@ function Wheel() {
   this.loops = 0;
   this.power = 0;
 
-  this.paper = Raphael($('#wrapper').get(0), 600, 600);
+  this.paper = Raphael($('#wrapper #wheel_container').get(0), 600, 600);
   this.image = this.paper.image('<%= asset_path('wheel.png') %>', 0, 0, 600, 600);
 }
 
-Wheel.prototype.spin = function(angle, ms){
-  this.image.animate({ rotation: angle }, ms, ">");
+Wheel.prototype.spin = function(angle, ms, callback){
+  this.image.animate({ rotation: angle }, ms, ">", function(){
+    callback();
+  });
 }

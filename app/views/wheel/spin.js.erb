@@ -1,2 +1,16 @@
 $('#spin_button').hide();
-wheel.spin(<%= @angle %>, 9000);
+
+wheel.spin(-10, 500, function(prize){
+
+  wheel.spin(<%= @angle %>, 9000, function(prize){
+    $('#wheel_container').animate({
+        left: "-=260",
+      }, 1000, function() {
+        $('#wrapper').append('<%= j render partial: "prize_information", locals: { prize: text_for(prize_for(@angle)) } %>');
+        $('#prize_information').hide().fadeIn(500);
+      }
+    );
+
+  });
+
+});
