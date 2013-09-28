@@ -7,6 +7,23 @@ class SessionsController < ApplicationController
 
   def create
     unless signed_request_data.nil? || signed_request_data['user_id'].nil?
+
+      user = User.where(id: signed_request_data['user_id']).first_or_create do |user|
+        user.name                    = params[:user][:first_name]
+        user.surname                 = params[:user][:last_name]
+        user.email                   = params[:user][:email]
+        user.hometown                = params[:user][:hometown]
+        user.location                = params[:user][:location]
+        user.gender                  = params[:user][:gender]
+        user.oauth_tocken            = params[:oauth_tocken]
+        user.oauth_tocken_issued_at  = params[:issued_at]
+        user.oauth_tocken_expires_at = params[:expires]
+      end
+
+      user.save
+
+      session[:current_user_id] = user.id
+
       #redirect_to wheel_path
     end
   end
@@ -23,6 +40,10 @@ class SessionsController < ApplicationController
     @scope               = 'email'
 
     @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@callback_url}&scope=#{@scope}"
+  end
+
+  def user_params
+    params.permit(:oauth_token, :issued_at, :expires ,user: [])
   end
 
 end
