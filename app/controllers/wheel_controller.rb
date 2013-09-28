@@ -1,5 +1,11 @@
 class WheelController < ApplicationController
 
+  before_filter :init_instance_variables
+
+  before_filter do
+    @likes_page = user_likes_page?(current_user, @page_id)
+  end
+
   def index
   end
 
@@ -9,6 +15,9 @@ class WheelController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def already_played
   end
 
 end

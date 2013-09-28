@@ -1,17 +1,17 @@
-<%= link_to 'Spin', wheel_spin_path, remote: true %>
+<% if @likes_page %>
+  <%= link_to '', wheel_spin_path, remote: true, id: 'spin_button'%>
+<% else %>
+  <%= image_tag 'like_to_play.png', id: 'like_to_play' %>
+<% end %>
 
 <%= image_tag 'arrow.png', id: 'win_sector' %>
 <%= image_tag 'shield.png', id: 'wheel_center' %>
-
 <%= image_tag 'logo.png', id: 'logo' %>
 
 <script type="text/javascript">
   var wheel;
 
   $(document).ready(function(){
-    // wheel = new Wheel();
+    wheel = new Wheel();
   });
 </script>
-
-<%= params.inspect %></br>
-<%= session.inspect %>

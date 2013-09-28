@@ -12,4 +12,52 @@ class ApplicationController < ActionController::Base
     Base64.decode64(str.tr('-_','+/'))
   end
 
+  def user_likes_page?(user, page_id)
+    facebook_likes_for(user).include?(page_id.to_s)    
+  end
+
+  def facebook_data_for(user)
+    p = Proc.new do
+      path = "/#{user.id}?oauth_token=#{user.oauth_token}"
+      http = Net::HTTP.new('graph.facebook.com', 443)
+      http.use_ssl = true
+      res = http.get(path, nil)
+
+      JSON.parse(res.body)
+    end
+
+    @_user_graph_data ||= p.call
+  end
+
+  def facebook_likes_for(user)
+    path = "/#{user.id}?fields=likes&oauth_token=#{user.oauth_token}"
+    http = Net::HTTP.new('graph.facebook.com', 443)
+    http.use_ssl = true
+    res = http.get(path, nil)
+
+    data = JSON.parse(res.body)
+
+    data['likes']['data'].map { |p| p['id'] }
+  end
+
+  def current_user
+    @_current_user ||= session[:current_user_id] && User.find(session[:current_user_id])
+  end
+
+  def logged_in?
+    current_user.present?
+  end
+
+  def init_instance_variables
+    @app_id     = '371914089608290'
+    @page_name  = 'Dobrinovs-lab'
+    @page_id    = '747088781984697'
+
+    @callback_url        = URI.escape("https://localhost:3000/callback")
+    @page_tab_canvas_url = "https://www.facebook.com/pages/#{@page_name}/#{@page_id}?id=#{@page_id}&v=app_#{@app_id}"
+    @scope               = 'email,user_likes'
+
+    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@callback_url}&scope=#{@scope}"
+  end
+
 end

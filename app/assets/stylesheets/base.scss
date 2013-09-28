@@ -46,4 +46,21 @@ svg {
 
     margin-top: -23px;
   }
+
+  #spin_button {
+    position: absolute;
+    top:  235px;
+    right: 35px;
+
+    width: 189px;
+    height: 52px;
+
+    background: image-url('spin_button.png');
+  }
+
+  #like_to_play {
+    position: absolute;
+    top:    5px;
+    right: 35px;
+  }
 }

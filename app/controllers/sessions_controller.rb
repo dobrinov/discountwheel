@@ -1,3 +1,5 @@
+require "net/http"
+
 class SessionsController < ApplicationController
 
   before_filter :init_instance_variables
@@ -8,42 +10,25 @@ class SessionsController < ApplicationController
   def create
     unless signed_request_data.nil? || signed_request_data['user_id'].nil?
 
-      user = User.where(id: signed_request_data['user_id']).first_or_create do |user|
-        user.name                    = params[:user][:first_name]
-        user.surname                 = params[:user][:last_name]
-        user.email                   = params[:user][:email]
-        user.hometown                = params[:user][:hometown]
-        user.location                = params[:user][:location]
-        user.gender                  = params[:user][:gender]
-        user.oauth_tocken            = params[:oauth_tocken]
-        user.oauth_tocken_issued_at  = params[:issued_at]
-        user.oauth_tocken_expires_at = params[:expires]
-      end
+      user = User.where(id: signed_request_data['user_id']).first_or_create
+
+      # Update user data
+      user.oauth_token            = signed_request_data['oauth_token']
+      user.oauth_token_issued_at  = DateTime.strptime(signed_request_data['issued_at'].to_s,'%s')
+      user.oauth_token_expires_at = DateTime.strptime(signed_request_data['expires'].to_s,'%s')
+
+      user.name    = facebook_data_for(user)['first_name']
+      user.surname = facebook_data_for(user)['last_name']
+      user.email   = facebook_data_for(user)['email']
+      user.gender  = facebook_data_for(user)['gender']
 
       user.save
 
+      # Create session
       session[:current_user_id] = user.id
 
-      #redirect_to wheel_path
+      redirect_to wheel_path
     end
-  end
-
-  private
-
-  def init_instance_variables
-    @app_id     = '371914089608290'
-    @page_name  = 'Dobrinovs-lab'
-    @page_id    = '747088781984697'
-
-    @callback_url        = URI.escape("https://discountwheel.herokuapp.com/callback")
-    @page_tab_canvas_url = "https://www.facebook.com/pages/#{@page_name}/#{@page_id}?id=#{@page_id}&v=app_#{@app_id}"
-    @scope               = 'email'
-
-    @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@callback_url}&scope=#{@scope}"
-  end
-
-  def user_params
-    params.permit(:oauth_token, :issued_at, :expires ,user: [])
   end
 
 end

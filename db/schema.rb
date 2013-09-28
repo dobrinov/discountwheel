@@ -11,18 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927184523) do
+ActiveRecord::Schema.define(version: 20130928174249) do
+
+  create_table "discount_wheel_spins", force: true do |t|
+    t.string   "prize"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "surname"
     t.string   "email"
-    t.string   "hometown"
-    t.string   "location"
     t.string   "gender"
-    t.string   "oauth_tocken"
-    t.datetime "oauth_tocken_issued_at"
-    t.datetime "oauth_tocken_expires_at"
+    t.string   "oauth_token"
+    t.datetime "oauth_token_issued_at"
+    t.datetime "oauth_token_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
