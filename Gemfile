@@ -13,6 +13,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'thin'
+
 gem 'rails_serve_static_assets'
 
 # Use SCSS for stylesheets
