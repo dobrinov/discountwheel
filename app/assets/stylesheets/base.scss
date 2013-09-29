@@ -2,6 +2,8 @@ body {
   margin: 0px;
   padding: 0px;
   background: image-url('bg_pattern.png');
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333;
 }
 
 #wrapper {
@@ -74,7 +76,7 @@ body {
 
   #prize_information {
     position: absolute;
-    top: 100px;
+    top: 30px;
     left: 300px;
 
     width: 460px;
@@ -83,8 +85,6 @@ body {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333333;
 
     h1 {
       font-size: 60px;
@@ -100,11 +100,56 @@ body {
     strong {
       font-size: 40px;
     }
+
+    #discount_code {
+      position: relative;
+      border: 1px solid #333;
+      background-color: #fff;
+
+      display: block;
+
+      margin-top: 30px;
+
+      padding: 10px 30px;
+
+      .sup-info {
+        position: absolute;
+        top: -15px;
+        left: 0px;
+        font-size: 13px;
+        font-weight: normal;
+      }
+
+      .sub-info {
+        position: absolute;
+        bottom: -15px;
+        left: 0px;
+        font-size: 13px;
+        font-weight: normal;
+      }
+
+      span {
+      }
+    }
   }
 
   #like_to_play {
     position: absolute;
     top:    5px;
     right: 35px;
+  }
+}
+
+.wheel.already-played #wrapper {
+  h1 {
+    margin-top: 150px;
+    text-align: center;
+  }
+
+  #logo {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    margin-left: -78px;
   }
 }
