@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @spins.each do |spin| %>
+      <tr>
+        <td>Name</td>
+        <td><%= button_to('Delete', winn3rs_path(spin)) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
