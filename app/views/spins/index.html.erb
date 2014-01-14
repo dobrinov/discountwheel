@@ -13,7 +13,7 @@
   <tbody>
     <% @spins.each do |spin| %>
       <tr>
-        <td><%= spin.id %></td>
+        <td><%= code_for(spin) %></td>
         <td><%= spin.user.name %></td>
         <td><%= spin.user.surname %></td>
         <td><%= spin.user.email %></td>
