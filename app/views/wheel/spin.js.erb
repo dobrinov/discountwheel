@@ -6,7 +6,7 @@ wheel.spin(-10, 500, function(){
     $('#wheel_container').animate({
         left: "-=260",
       }, 1000, function() {
-        $('#wrapper').append('<%= j render partial: "prize_information", locals: { prize: text_for(@prize), code: @spin.id } %>');
+        $('#wrapper').append('<%= j render partial: "prize_information", locals: { prize: text_for(@prize), code: 2008 + @spin.id } %>');
         $('#prize_information').hide().fadeIn(500);
       }
     );
