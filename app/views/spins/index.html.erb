@@ -9,7 +9,7 @@
     <% @spins.each do |spin| %>
       <tr>
         <td>Name</td>
-        <td><%= button_to('Delete', winn3rs_path(spin)) %></td>
+        <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?') %></td>
       </tr>
     <% end %>
   </tbody>

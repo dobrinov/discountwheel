@@ -6,6 +6,6 @@ class SpinsController < ApplicationController
   def destroy
     @spin = DiscountWheelSpin.find(params[:id])
     @spin.destroy
-    redirect_to winn3rs_path
+    redirect_to spins_path
   end
 end
