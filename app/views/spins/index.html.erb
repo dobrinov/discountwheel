@@ -2,13 +2,21 @@
   <thead>
     <tr>
       <td>Name</td>
+      <td>Surname</td>
+      <td>Email</td>
+      <td>Gender</td>
+      <td>Prize</td>
       <td>Delete</td>
     </tr>
   </thead>
   <tbody>
     <% @spins.each do |spin| %>
       <tr>
-        <td>Name</td>
+        <td><%= spin.user.name %></td>
+        <td><%= spin.user.surname %></td>
+        <td><%= spin.user.email %></td>
+        <td><%= spin.user.gender %></td>
+        <td><%= spin.prize %></td>
         <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?') %></td>
       </tr>
     <% end %>
