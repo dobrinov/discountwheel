@@ -19,8 +19,9 @@ class WheelController < ApplicationController
   def spin
     @angle = 2 * 360 + ((rand(360) / 15).floor * 15)
     @prize = prize_for(@angle)
+    @spin  = DiscountWheelSpin.new({ prize: @prize })
 
-    current_user.discount_wheel_spins << DiscountWheelSpin.new({ prize: @prize })
+    current_user.discount_wheel_spins << @spin
     current_user.save
 
     respond_to do |format|
