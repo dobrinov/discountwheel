@@ -3,10 +3,9 @@ class SpinsController < ApplicationController
   end
 
   def search
-    match = /2008(\d+)/.match(params[:code])
-
-    if match.size > 1
-      @spin = DiscountWheelSpin.find(match[1])
+    matches = /2008(\d+)/.match(params[:code].to_s)
+    if matches.present?
+      @spin = DiscountWheelSpin.find(matches[1])
       redirect_to spin_path(@spin)
     else
       redirect_to spins_path, notice: 'No results.'
