@@ -1,3 +1,11 @@
+<br/><br/>
+
+<% if flash[:notice] %>
+  <p class="welcome">Nothing found!</p>
+<% end %>
+
+<br/><br/>
+
 <%= form_tag spin_search_path, method: :get do %>
   <%= number_field_tag :code %>
   <%= button_tag 'Search' %>
