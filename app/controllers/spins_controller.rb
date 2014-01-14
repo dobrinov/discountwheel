@@ -9,7 +9,7 @@ class SpinsController < ApplicationController
       @spin = DiscountWheelSpin.find(match[1])
       redirect_to spin_path(@spin)
     else
-      redirect_to spin_search_path, notice: 'No results.'
+      redirect_to spins_path, notice: 'No results.'
     end
 
   end
