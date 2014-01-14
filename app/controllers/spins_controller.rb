@@ -6,7 +6,7 @@ class SpinsController < ApplicationController
     matches = /2008(\d+)/.match(params[:code].to_s)
     if matches.present?
       @spin = DiscountWheelSpin.find(matches[1])
-      redirect_to spin_path(@spin)
+      render 'show'
     else
       redirect_to spins_path, notice: 'No results.'
     end
