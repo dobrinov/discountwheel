@@ -52,12 +52,8 @@ class WheelController < ApplicationController
     end
   end
 
-  def code_for(prize)
-    if(prize == 100)
-      current_user.name + ' ' + current_user.surname
-    else
-      "#{rand(999)}#{prize - 4}"
-    end
+  def code_for(spin)
+    "2008#{spin.id}"
   end
 
 end
