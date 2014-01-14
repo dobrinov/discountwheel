@@ -1,10 +1,10 @@
 class SpinsController < ApplicationController
   def index
-    @spins = DiscountWheel.all
+    @spins = DiscountWheelSpin.all
   end
 
   def destroy
-    @spin = DiscountWheel.find(params[:id])
+    @spin = DiscountWheelSpin.find(params[:id])
     @spin.destroy
     redirect_to winn3rs_path
   end

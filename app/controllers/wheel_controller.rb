@@ -10,6 +10,9 @@ class WheelController < ApplicationController
 
   before_filter :verify_allowed_to_spin, except: [:already_played]
 
+  def terms
+  end
+
   def index
   end
 
