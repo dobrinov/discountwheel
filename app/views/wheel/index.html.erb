@@ -1,6 +1,9 @@
 <% if @likes_page %>
   <%= link_to '', wheel_spin_path, remote: true, id: 'spin_button'%>
-  <%= link_to 'Terms and conditions', terms_path, id: 'terms_button'%>
+  <%= link_to 'Правила за участие*', terms_path, id: 'terms_button'%>
+  <span id="terms_footnote">
+    *Моля, прочетете правилата за участие преди да участвате
+  </span>
 <% else %>
   <%= image_tag 'like_to_play.png', id: 'like_to_play' %>
 <% end %>

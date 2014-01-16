@@ -74,6 +74,28 @@ body {
     }
   }
 
+  #terms_button {
+    position: absolute;
+    top: 287px;
+    right: 35px;
+    width: 189px;
+    height: 25px;
+    line-height: 25px;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  #terms_footnote {
+    font-size: 12px;
+    position: absolute;
+    top: 316px;
+    right: 25px;
+    width: 210px;
+    line-height: 12px;
+    text-align: center;
+    color: #666;
+  }
+
   #prize_information {
     position: absolute;
     top: 30px;
