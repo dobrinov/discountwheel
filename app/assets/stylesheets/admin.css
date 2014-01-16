@@ -32,7 +32,13 @@ body {
   color: #ccc;
 }
 
-.no-search-results {
+.pending {
+}
+
+.given {
+}
+
+.no-results {
   font-style: italic;
   color: #666;
   font-size: 26px;

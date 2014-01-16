@@ -13,9 +13,11 @@
 </br>
 </br>
 
+<h1>Pending winnings</h1>
+
 <div class="row">
   <div class="col-xs-12">
-    <table class="table table-hover">
+    <table class="pending table table-hover">
       <thead>
         <tr>
           <th>Code</th>
@@ -30,29 +32,71 @@
         </tr>
       </thead>
       <tbody>
-        <% @spins.each do |spin| %>
+        <% @pending_winnings.each do |pending_winning| %>
           <tr>
-            <td style="font-size:16px;font-weight:bold;"><%= "2008#{spin.id}" %></td>
-            <td><%= spin.user.name %></td>
-            <td><%= spin.user.surname %></td>
-            <td><%= spin.user.email %></td>
-            <td><%= spin.user.gender %></td>
-            <td><%= spin.prize %></td>
-            <td><%= spin.created_at %></td>
-            <td><%= button_to('Give', spin_path(spin), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
-            <td><%= button_to('Delete', spin_path(spin), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
+            <td style="font-size:16px;font-weight:bold;"><%= "2008#{pending_winning.id}" %></td>
+            <td><%= pending_winning.user.name %></td>
+            <td><%= pending_winning.user.surname %></td>
+            <td><%= pending_winning.user.email %></td>
+            <td><%= pending_winning.user.gender %></td>
+            <td><%= pending_winning.prize %></td>
+            <td><%= pending_winning.created_at %></td>
+            <td><%= button_to('Give', pending_winning_path(pending_winning), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
+            <td><%= button_to('Delete', pending_winning_path(pending_winning), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+
+    </br>
+
+    <% unless @pending_winnings.any? %>
+      <div class="no-results">
+        <%= @no_results_message %>
+      </div>
+    <% end %>
   </div>
 </div>
 
+<h1>Given winnings</h1>
 
-<% unless @spins.any? %>
-  <div class="row">
-    <div class="col-xs-12 no-search-results">
-      <%= @no_results_message %>
-    </div>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="given table table-hover">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Prize</th>
+          <th>Played on</th>
+          <th>Given on</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @given_winnings.each do |given_winning| %>
+          <tr>
+            <td style="font-size:16px;font-weight:bold;"><%= "2008#{pending_winning.id}" %></td>
+            <td><%= given_winning.user.name %></td>
+            <td><%= given_winning.user.surname %></td>
+            <td><%= given_winning.user.email %></td>
+            <td><%= given_winning.user.gender %></td>
+            <td><%= given_winning.prize %></td>
+            <td><%= given_winning.created_at %></td>
+            <td><%= given_winning.updated_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    </br>
+
+    <% unless @pending_winnings.any? %>
+      <div class="no-results">
+        No given winnings so far.
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

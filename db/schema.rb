@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20130928174249) do
   create_table "discount_wheel_spins", force: true do |t|
     t.string   "prize"
     t.integer  "user_id"
+    t.boolean  "given",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
