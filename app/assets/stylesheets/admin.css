@@ -7,6 +7,27 @@ body {
   padding: 50px;
 }
 
+.code-input {
+}
+
+.code-input input {
+  font-size: 16px;
+  padding-left: 56px;
+  font-weight: bold;
+  color: green;
+  text-transform: uppercase;
+}
+
+.code-input .code-prefix {
+  position: absolute;
+  top: 4px;
+  left: 25px;
+  color: #666;
+  font-size: 20px;
+  text-align: center;
+  color: #ccc;
+}
+
 .no-search-results {
   font-style: italic;
   color: #666;

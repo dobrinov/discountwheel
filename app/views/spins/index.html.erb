@@ -1,6 +1,7 @@
 <div class="row">
   <%= form_tag spins_search_path, method: :get, class: 'form-inline', role: 'form' do %>
-    <div class="col-xs-8 form-group">
+    <div class="code-input col-xs-8 form-group">
+      <span class="code-prefix">2008</span>
       <%= number_field_tag :code, nil, placeholder: 'CODE', class: 'form-control' %>
     </div>
     <div class="col-xs-4">
