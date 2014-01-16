@@ -36,7 +36,7 @@
             <td><%= spin.user.email %></td>
             <td><%= spin.user.gender %></td>
             <td><%= spin.prize %></td>
-            <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?') %></td>
+            <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?'), class: 'btn btn-danger' %></td>
           </tr>
         <% end %>
       </tbody>
