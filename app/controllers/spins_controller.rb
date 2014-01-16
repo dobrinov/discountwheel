@@ -1,16 +1,13 @@
 class SpinsController < ApplicationController
+
+  layout 'admin'
+
   def index
+    @spins = DiscountWheelSpin.all
   end
 
   def search
-    matches = /2008(\d+)/.match(params[:code].to_s)
-    if matches.present?
-      @spin = DiscountWheelSpin.find(matches[1])
-      render 'show'
-    else
-      redirect_to spins_path, notice: 'No results.'
-    end
-
+    redirect_to spin_path(params[:code])
   end
 
   def show

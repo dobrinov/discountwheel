@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mania Administration</title>
+  <%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "admin", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= params[:controller].dasherize %> <%= params[:action].dasherize %>">
+
+  <div class="container">
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+</html>

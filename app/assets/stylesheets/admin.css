@@ -1,0 +1,15 @@
+/*
+ *= require_self
+ *= require bootstrap
+ */
+
+body {
+  padding: 50px;
+}
+
+.no-search-results {
+  font-style: italic;
+  color: #666;
+  font-size: 26px;
+  text-align: center;
+}

@@ -1,12 +1,53 @@
-<br/><br/>
+<div class="row">
+  <%= form_tag spins_search_path, method: :get, class: 'form-inline', role: 'form' do %>
+    <div class="col-xs-8 form-group">
+      <%= number_field_tag :code, nil, placeholder: 'CODE', class: 'form-control' %>
+    </div>
+    <div class="col-xs-4">
+      <%= button_tag 'Search', class: 'btn btn-default btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>
 
-<% if flash[:notice] %>
-  <p class="welcome">Nothing found!</p>
-<% end %>
+</br>
+</br>
 
-<br/><br/>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Prize</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @spins.each do |spin| %>
+          <tr>
+            <td style="font-size:16px;font-weight:bold;"><%= "2008#{spin.id}" %></td>
+            <td><%= spin.user.name %></td>
+            <td><%= spin.user.surname %></td>
+            <td><%= spin.user.email %></td>
+            <td><%= spin.user.gender %></td>
+            <td><%= spin.prize %></td>
+            <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<%= form_tag spin_search_path, method: :get do %>
-  <%= number_field_tag :code %>
-  <%= button_tag 'Search' %>
+
+<% unless @spins.any? %>
+  <div class="row">
+    <div class="col-xs-12 no-search-results">
+      There are no winners at the moment.
+    </div>
+  </div>
 <% end %>
