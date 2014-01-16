@@ -41,8 +41,8 @@
             <td><%= pending_winning.user.gender %></td>
             <td><%= pending_winning.prize %></td>
             <td><%= pending_winning.created_at %></td>
-            <td><%= button_to('Give', pending_winning_path(pending_winning), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
-            <td><%= button_to('Delete', pending_winning_path(pending_winning), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
+            <td><%= button_to('Give', spin_path(pending_winning), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
+            <td><%= button_to('Delete', spin_path(pending_winning), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
         <% end %>
       </tbody>
