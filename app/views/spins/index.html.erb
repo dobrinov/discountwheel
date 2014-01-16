@@ -78,7 +78,7 @@
       <tbody>
         <% @given_winnings.each do |given_winning| %>
           <tr>
-            <td style="font-size:16px;font-weight:bold;"><%= "2008#{pending_winning.id}" %></td>
+            <td style="font-size:16px;font-weight:bold;"><%= "2008#{given_winning.id}" %></td>
             <td><%= given_winning.user.name %></td>
             <td><%= given_winning.user.surname %></td>
             <td><%= given_winning.user.email %></td>
