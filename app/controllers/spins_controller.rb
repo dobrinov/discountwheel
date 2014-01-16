@@ -21,6 +21,11 @@ class SpinsController < ApplicationController
     redirect_to spins_path
   end
 
+  def reset
+    DiscountWheelSpin.destroy_all
+    redirect_to spins_path
+  end
+
   def destroy
     @spin = DiscountWheelSpin.find(params[:id])
     @spin.destroy
