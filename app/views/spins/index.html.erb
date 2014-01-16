@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_tag spins_search_path, method: :get, class: 'form-inline', role: 'form' do %>
+  <%= form_tag spins_path, method: :get, class: 'form-inline', role: 'form' do %>
     <div class="code-input col-xs-8 form-group">
       <span class="code-prefix">2008</span>
       <%= number_field_tag :code, nil, placeholder: 'CODE', class: 'form-control' %>
@@ -24,6 +24,8 @@
           <th>Email</th>
           <th>Gender</th>
           <th>Prize</th>
+          <th>Played on</th>
+          <th>Give</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -36,7 +38,9 @@
             <td><%= spin.user.email %></td>
             <td><%= spin.user.gender %></td>
             <td><%= spin.prize %></td>
-            <td><%= button_to('Delete', spin_path(spin), method: :delete, confirm: 'Are yoy sure?', class: 'btn btn-danger') %></td>
+            <td><%= spin.created_at %></td>
+            <td><%= button_to('Give', spin_path(spin), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
+            <td><%= button_to('Delete', spin_path(spin), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
         <% end %>
       </tbody>
@@ -48,7 +52,7 @@
 <% unless @spins.any? %>
   <div class="row">
     <div class="col-xs-12 no-search-results">
-      There are no winners at the moment.
+      <%= @no_results_message %>
     </div>
   </div>
 <% end %>

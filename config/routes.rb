@@ -8,7 +8,6 @@ Discountwheel::Application.routes.draw do
   get  '/wheel',                to: 'wheel#index'
   post '/',                     to: 'sessions#create'
 
-  get '/spins/search',          to: 'spins#search'
-  resources :spins, only: [:index, :show, :update, :destroy]
+  resources :spins, only: [:index, :update, :destroy]
 
 end
