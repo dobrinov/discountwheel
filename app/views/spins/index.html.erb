@@ -2,10 +2,10 @@
   <%= form_tag spins_path, method: :get, class: 'form-inline', role: 'form' do %>
     <div class="code-input col-xs-8 form-group">
       <span class="code-prefix">2008</span>
-      <%= number_field_tag :code, nil, placeholder: 'CODE', class: 'form-control' %>
+      <%= number_field_tag :code, nil, placeholder: 'КОД НА НАГРАДА', class: 'form-control' %>
     </div>
     <div class="col-xs-4">
-      <%= button_tag 'Search', class: 'btn btn-default btn-primary btn-block' %>
+      <%= button_tag 'Търси награда', class: 'btn btn-default btn-primary btn-block' %>
     </div>
   <% end %>
 </div>
@@ -13,22 +13,22 @@
 </br>
 </br>
 
-<h1>Pending winnings</h1>
+<h1>Неполучени печалби</h1>
 
 <div class="row">
   <div class="col-xs-12">
     <table class="pending table table-hover">
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Email</th>
-          <th>Gender</th>
-          <th>Prize</th>
-          <th>Played on</th>
-          <th>Give</th>
-          <th>Delete</th>
+          <th>Код</th>
+          <th>Име</th>
+          <th>Фамилия</th>
+          <th>Имейл</th>
+          <th>Пол</th>
+          <th>Награда</th>
+          <th>Играно на</th>
+          <th>Даване на награда?</th>
+          <th>Изтриване?</th>
         </tr>
       </thead>
       <tbody>
@@ -40,9 +40,9 @@
             <td><%= pending_winning.user.email %></td>
             <td><%= pending_winning.user.gender %></td>
             <td><%= pending_winning.prize %></td>
-            <td><%= distance_of_time_in_words(pending_winning.created_at, Time.now) %> ago</td>
-            <td><%= button_to('Give', spin_path(pending_winning), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
-            <td><%= button_to('Delete', spin_path(pending_winning), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
+            <td>преди <%= distance_of_time_in_words(pending_winning.created_at, Time.now) %></td>
+            <td><%= button_to('Give', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :put, class: 'btn btn-primary') %></td>
+            <td><%= button_to('Delete', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
         <% end %>
       </tbody>
@@ -65,14 +65,14 @@
     <table class="given table table-hover">
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>Email</th>
-          <th>Gender</th>
-          <th>Prize</th>
-          <th>Played on</th>
-          <th>Given on</th>
+          <th>Код</th>
+          <th>Име</th>
+          <th>Фамилия</th>
+          <th>Имейл</th>
+          <th>Пол</th>
+          <th>Награда</th>
+          <th>Играно на</th>
+          <th>Получено на</th>
         </tr>
       </thead>
       <tbody>
@@ -84,8 +84,8 @@
             <td><%= given_winning.user.email %></td>
             <td><%= given_winning.user.gender %></td>
             <td><%= given_winning.prize %></td>
-            <td><%= distance_of_time_in_words(given_winning.created_at, Time.now) %> ago</td>
-            <td><%= distance_of_time_in_words(given_winning.updated_at, Time.now) %> ago</td>
+            <td>преди <%= distance_of_time_in_words(given_winning.created_at, Time.now) %></td>
+            <td>преди <%= distance_of_time_in_words(given_winning.updated_at, Time.now) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -95,7 +95,7 @@
 
     <% unless @given_winnings.any? %>
       <div class="no-results">
-        No given winnings so far.
+        Няма раздадени награди.
       </div>
     <% end %>
   </div>
