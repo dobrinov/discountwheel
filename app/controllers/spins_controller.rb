@@ -15,8 +15,7 @@ class SpinsController < ApplicationController
   end
 
   def update
-    @spin = DiscountWheelSpin.find(params[:id])
-
+    spin = DiscountWheelSpin.find(params[:id])
     spin.give!
 
     redirect_to spins_path
