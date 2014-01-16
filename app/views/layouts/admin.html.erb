@@ -9,9 +9,13 @@
 <body class="<%= params[:controller].dasherize %> <%= params[:action].dasherize %>">
 
   <div class="container">
-    <div class="row">
-      <%= yield %>
+    <div class="row logo">
+      <div class="col-xs-12">
+        <%= image_tag 'logo.png' %>
+      </div>
     </div>
+
+    <%= yield %>
   </div>
 
 </body>
