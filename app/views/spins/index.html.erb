@@ -41,8 +41,8 @@
             <td><%= pending_winning.user.gender %></td>
             <td><%= pending_winning.prize %></td>
             <td>преди <%= distance_of_time_in_words(pending_winning.created_at, Time.now) %></td>
-            <td><%= button_to('Give', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :put, class: 'btn btn-primary') %></td>
-            <td><%= button_to('Delete', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :delete, class: 'btn btn-danger') %></td>
+            <td><%= button_to('Дай', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :put, class: 'btn btn-primary') %></td>
+            <td><%= button_to('Изтрий', spin_path(pending_winning), confirm: 'Сигурни ли сте?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
         <% end %>
       </tbody>
