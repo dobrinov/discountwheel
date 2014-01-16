@@ -1,5 +1,6 @@
 <% if @likes_page %>
   <%= link_to '', wheel_spin_path, remote: true, id: 'spin_button'%>
+  <%= link_to 'Terms and conditions', terms_path, id: 'terms_button'%>
 <% else %>
   <%= image_tag 'like_to_play.png', id: 'like_to_play' %>
 <% end %>
