@@ -40,7 +40,7 @@
             <td><%= pending_winning.user.email %></td>
             <td><%= pending_winning.user.gender %></td>
             <td><%= pending_winning.prize %></td>
-            <td><%= distance_of_time_in_words(given_winning.created_at, Time.now) %> ago</td>
+            <td><%= distance_of_time_in_words(pending_winning.created_at, Time.now) %> ago</td>
             <td><%= button_to('Give', spin_path(pending_winning), confirm: 'Are you sure?', method: :put, class: 'btn btn-primary') %></td>
             <td><%= button_to('Delete', spin_path(pending_winning), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') %></td>
           </tr>
