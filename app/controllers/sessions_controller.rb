@@ -27,8 +27,6 @@ class SessionsController < ApplicationController
       # Create session
       session[:current_user_id] = user.id
 
-      raise "#{session[:current_user_id]} --- #{user.id}"
-
       redirect_to wheel_path
     end
   end

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
-
+  before_filter :set_p3p
   helper_method :signed_request_data
 
   def signed_request_data
@@ -58,6 +58,12 @@ class ApplicationController < ActionController::Base
     @scope               = 'email,user_likes'
 
     @auth_url = "https://www.facebook.com/dialog/oauth?client_id=#{@app_id}&redirect_uri=#{@callback_url}&scope=#{@scope}"
+  end
+
+  private
+
+  def set_p3p
+    headers['P3P'] = 'CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"'
   end
 
 end
