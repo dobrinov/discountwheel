@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def facebook_likes_for(user)
+    logger.debug "USER: #{user}"
     path = "/#{user.id}?fields=likes&oauth_token=#{user.oauth_token}"
     http = Net::HTTP.new('graph.facebook.com', 443)
     http.use_ssl = true
