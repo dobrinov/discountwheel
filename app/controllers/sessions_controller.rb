@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    raise 'MADAFOKIN_SIGNED_REQUEST' + signed_request_data.inspect
     unless signed_request_data.nil? || signed_request_data['user_id'].nil?
 
       user = User.where(id: signed_request_data['user_id']).first_or_create
@@ -27,6 +26,8 @@ class SessionsController < ApplicationController
 
       # Create session
       session[:current_user_id] = user.id
+
+      raise "#{session[:current_user_id]} --- #{user.id}"
 
       redirect_to wheel_path
     end
