@@ -4,7 +4,7 @@ class SpinsController < ApplicationController
 
   def index
     if params[:code].present?
-      @pending_winnings = DiscountWheelSpin.find(params[:code]) rescue []
+      @pending_winnings = [DiscountWheelSpin.find(params[:code])] rescue []
       @no_results_message = 'Няма печалба с такъв код.'
     else
       @pending_winnings = DiscountWheelSpin.where(given: false)
