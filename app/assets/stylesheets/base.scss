@@ -91,9 +91,10 @@ body {
     top: 316px;
     right: 25px;
     width: 210px;
-    line-height: 12px;
+    line-height: 13px;
     text-align: center;
     color: #666;
+    text-align: bold;
   }
 
   #prize_information {
@@ -174,6 +175,17 @@ body {
   h1 {
     margin-top: 150px;
     text-align: center;
+  }
+
+  > a {
+    position: absolute;
+    top: 2px;
+    left: -110px;
+    font-size: 25px;
+  }
+
+  > ul {
+    margin-top: 30px;
   }
 
   #logo {
