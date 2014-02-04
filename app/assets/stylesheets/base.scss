@@ -169,19 +169,19 @@ body {
   h1 {
     text-align: center;
   }
-}
-
-.wheel.already-played #wrapper {
-  h1 {
-    margin-top: 150px;
-    text-align: center;
-  }
 
   #back_button {
     position: absolute;
     top: 2px;
     left: -110px;
     font-size: 25px;
+  }
+}
+
+.wheel.already-played #wrapper {
+  h1 {
+    margin-top: 150px;
+    text-align: center;
   }
 
   > ul {
