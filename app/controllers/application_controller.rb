@@ -51,8 +51,8 @@ class ApplicationController < ActionController::Base
 
   def init_instance_variables
     @app_id     = '371914089608290'
-    @page_name  = 'Dobrinovs-lab'
-    @page_id    = '747088781984697'
+    @page_name  = 'mania.pernik'
+    @page_id    = '372485692804942'
 
     @callback_url        = URI.escape("https://discountwheel.herokuapp.com/callback")
     @page_tab_canvas_url = "https://www.facebook.com/pages/#{@page_name}/#{@page_id}?id=#{@page_id}&v=app_#{@app_id}"
