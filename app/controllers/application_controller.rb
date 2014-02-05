@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def facebook_data_for(user)
     p = Proc.new do
-      path = "/#{user.id}?oauth_token=#{user.oauth_token}"
+      path = "/#{user.fb_id}?oauth_token=#{user.oauth_token}"
       http = Net::HTTP.new('graph.facebook.com', 443)
       http.use_ssl = true
       res = http.get(path, nil)
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def facebook_likes_for(user)
     logger.debug "USER: #{user}"
-    path = "/#{user.id}?fields=likes&oauth_token=#{user.oauth_token}"
+    path = "/#{user.fb_id}?fields=likes&oauth_token=#{user.oauth_token}"
     http = Net::HTTP.new('graph.facebook.com', 443)
     http.use_ssl = true
     res = http.get(path, nil)
@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @_current_user ||= session[:current_user_id] && User.find(session[:current_user_id])
+    @_current_user ||= session[:current_user_id] && User.where(fb_id: session[:current_user_id])
   end
 
   def logged_in?

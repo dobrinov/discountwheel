@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string   :surname
       t.string   :email
       t.string   :gender
+      t.integer  :fb_id, :limit => 8
       t.string   :oauth_token
       t.datetime :oauth_token_issued_at
       t.datetime :oauth_token_expires_at

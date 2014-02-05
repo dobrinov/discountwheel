@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     unless signed_request_data.nil? || signed_request_data['user_id'].nil?
 
-      user = User.where(id: signed_request_data['user_id']).first_or_create
+      user = User.where(fb_id: signed_request_data['user_id']).first_or_create
 
       # Update user data
       user.oauth_token            = signed_request_data['oauth_token']
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       user.save
 
       # Create session
-      session[:current_user_id] = user.id
+      session[:current_user_id] = user.fb_id
 
       redirect_to wheel_path
     end
